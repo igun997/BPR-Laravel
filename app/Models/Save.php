@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Save
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property Carbon|null $save_date
  * @property Carbon|null $created_at
+ * @property string|null $deleted_at
  * @property Carbon|null $updated_at
  * 
  * @property User $user
@@ -27,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Save extends Model
 {
+	use SoftDeletes;
 	protected $table = 'saves';
 
 	protected $casts = [

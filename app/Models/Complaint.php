@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Complaint
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $content
  * @property int $status
  * @property Carbon|null $created_at
+ * @property string|null $deleted_at
  * @property Carbon|null $updated_at
  * 
  * @property ComplaintType $complaint_type
@@ -28,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Complaint extends Model
 {
+	use SoftDeletes;
 	protected $table = 'complaints';
 
 	protected $casts = [

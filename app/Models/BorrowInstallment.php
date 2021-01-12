@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class BorrowInstallment
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $amount
  * @property int $borrow_id
+ * @property string|null $deleted_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $created_at
  * 
@@ -24,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BorrowInstallment extends Model
 {
+	use SoftDeletes;
 	protected $table = 'borrow_installments';
 
 	protected $casts = [

@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Borrow
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $product_id
  * @property int $user_id
  * @property Carbon|null $created_at
+ * @property string|null $deleted_at
  * @property Carbon|null $updated_at
  * 
  * @property Product $product
@@ -33,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Borrow extends Model
 {
+	use SoftDeletes;
 	protected $table = 'borrows';
 
 	protected $casts = [

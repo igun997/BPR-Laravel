@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Profit
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $transaction_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property string|null $deleted_at
  * 
  * @property Borrow $borrow
  *
@@ -26,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Profit extends Model
 {
+	use SoftDeletes;
 	protected $table = 'profits';
 
 	protected $casts = [

@@ -29,6 +29,15 @@ Route::get("/logout","Auth@logout")->name("logout");
 Route::get("/dashboard","Dashboard@index")->middleware("gateway:0|1|2|3|4|5")->name("dashboard");
 //Admin
 
+Route::prefix("master")->namespace("Master")->name("master.")->group(function (){
+    Route::get("/complaint","Complaint@index")->name("list");
+    Route::get("/complaint/add","Complaint@add")->name("add");
+    Route::get("/complaint/update/{id}","Complaint@update")->name("update");
+    Route::post("/complaint/update/{id}","Complaint@update_action")->name("update_action");
+    Route::post("/complaint/add","Complaint@add_action")->name("add_action");
+    Route::get("/complaint/delete/{id}","Complaint@delete")->name("update");
+});
+
 
 
 
