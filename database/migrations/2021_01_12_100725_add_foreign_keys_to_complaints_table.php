@@ -15,6 +15,7 @@ class AddForeignKeysToComplaintsTable extends Migration
     {
         Schema::table('complaints', function (Blueprint $table) {
             $table->foreign('complaint_type_id', 'complaints_ibfk_1')->references('id')->on('complaint_types')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('user_id', 'complaints_ibfk_2')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignKeysToComplaintsTable extends Migration
     {
         Schema::table('complaints', function (Blueprint $table) {
             $table->dropForeign('complaints_ibfk_1');
+            $table->dropForeign('complaints_ibfk_2');
         });
     }
 }
