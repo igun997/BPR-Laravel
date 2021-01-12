@@ -2,5 +2,5 @@ vendor/
 !public/vendor
 !public/assets/vendor
 .idea
-storage
+storage/framework/*
 .env

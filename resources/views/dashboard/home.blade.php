@@ -14,9 +14,6 @@
                     <div class="card-title">Dashboard</div>
                 </div>
                 <div class="card-body">
-                    @if(isset($chartjs))
-                    {!! $chartjs->render() !!}
-                    @endif
                 </div>
             </div>
         </div>

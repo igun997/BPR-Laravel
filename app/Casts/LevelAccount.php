@@ -6,27 +6,33 @@ namespace App\Casts;
 class LevelAccount
 {
     const  ADMIN = 0;
-    const  PEMILIK = 1;
-    const  GUDANG = 2;
-    const  PRODUKSI = 3;
-    const  PELANGGAN = 4;
-    const  KASIR = 5;
+    const  TELLER = 1;
+    const  CS = 2;
+    const  KOORDINATOR_OPERASIONAL = 3;
+    const  KOORDINATOR_KREDIT = 4;
+    const  ADMIN_KREDIT = 5;
+    const  ANALIS_KREDIT = 6;
+    const  NASABAH = 7;
 
 
     public static function lang($level)
     {
         if ($level == LevelAccount::ADMIN){
             return "Admninistrator";
-        }elseif ($level == LevelAccount::PEMILIK){
-            return "Pemilik";
-        }elseif ($level == LevelAccount::GUDANG){
-            return "Gudang";
-        }elseif ($level == LevelAccount::PRODUKSI){
-            return "Produksi";
-        }elseif ($level == LevelAccount::PELANGGAN){
-            return "Pelanggan";
-        }elseif ($level == LevelAccount::KASIR){
-            return "Kasir";
+        }elseif ($level == LevelAccount::NASABAH){
+            return "Nasabah";
+        }elseif ($level == LevelAccount::CS){
+            return "CS";
+        }elseif ($level == LevelAccount::TELLER){
+            return "Teller";
+        }elseif ($level == LevelAccount::KOORDINATOR_KREDIT){
+            return "Koordinator Kredit";
+        }elseif ($level == LevelAccount::KOORDINATOR_OPERASIONAL){
+            return "Koordinator Operasional";
+        }elseif ($level == LevelAccount::ADMIN_KREDIT){
+            return "Admin Kredit";
+        }elseif ($level == LevelAccount::ANALIS_KREDIT){
+            return "Analis Kredit";
         }else{
             return  FALSE;
         }

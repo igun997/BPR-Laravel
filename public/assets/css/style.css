@@ -167,17 +167,11 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .nav-menu ul li.active {
-  background-image: url("../img/menu-active.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 50px;
+  border-bottom: 3px solid orange;
 }
 
 .nav-menu ul li:hover{
-  background-image: url("../img/menu-active.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 50px;
+  border-bottom: 3px solid orange;
 }
 
 .nav-menu .drop-down ul {
