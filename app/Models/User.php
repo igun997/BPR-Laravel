@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
+ * @property Collection|Borrow[] $borrows
  * @property Collection|Complaint[] $complaints
  * @property Collection|Save[] $saves
  *
@@ -59,6 +60,11 @@ class User extends Model
 		'status',
 		'no_rekening'
 	];
+
+	public function borrows()
+	{
+		return $this->hasMany(Borrow::class);
+	}
 
 	public function complaints()
 	{
