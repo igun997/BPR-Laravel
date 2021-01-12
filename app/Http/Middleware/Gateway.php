@@ -44,25 +44,11 @@ class Gateway
                 if ($level == LevelAccount::ADMIN){
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
-                            "text"=>"Data Suplier",
-                            "url"=>"master/suplier",
+                            "text"=>"Data Kategori Komplain",
+                            "url"=>"master/complaint",
                             "icon"=>"fa fa-file"
                         ]);
-                        $e->menu->add([
-                            "text"=>"Data Ukuran",
-                            "url"=>"master/size",
-                            "icon"=>"fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text"=>"Data Material",
-                            "url"=>"master/material",
-                            "icon"=>"fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text"=>"Data Produk",
-                            "url"=>"master/produk",
-                            "icon"=>"fa fa-file"
-                        ]);
+
                         $e->menu->add([
                             "text"=>"Data Akun",
                             "url"=>"master/akun",
@@ -70,111 +56,122 @@ class Gateway
                         ]);
 
                     });
-                }elseif ($level == LevelAccount::PEMILIK){
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e) {
-                        $e->menu->add([
-                            "text" => "Pemesanan",
-                            "url" => "pemesanan",
-                            "icon" => "fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text" => "Laporan Pemesanan",
-                            "url" => "laporan/pemesanan",
-                            "icon" => "fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text" => "Laporan Bahan Baku",
-                            "url" => "laporan/bahan_baku",
-                            "icon" => "fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text" => "Laporan Penjualan",
-                            "url" => "laporan/penjualan",
-                            "icon" => "fa fa-file"
-                        ]);
-                    });
-                }elseif ($level == LevelAccount::GUDANG){
+                }elseif ($level == LevelAccount::TELLER) {
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
-                            "text"=>"Data Suplier",
-                            "url"=>"master/suplier",
-                            "icon"=>"fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text"=>"Data Ukuran",
-                            "url"=>"master/size",
-                            "icon"=>"fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text"=>"Data Material",
-                            "url"=>"master/material",
-                            "icon"=>"fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text"=>"Data Produk",
-                            "url"=>"master/produk",
+                            "text"=>"Data Nasabah",
+                            "url"=>"teller",
                             "icon"=>"fa fa-file"
                         ]);
 
                         $e->menu->add([
-                            "text"=>"Pemesanan Bahan Baku",
-                            "url"=>"pemesanan",
+                            "text"=>"Data Transaksi",
+                            "url"=>"transaksi",
                             "icon"=>"fa fa-file"
                         ]);
 
                         $e->menu->add([
-                            "text" => "Laporan Pemesanan",
-                            "url" => "laporan/pemesanan",
-                            "icon" => "fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text" => "Laporan Bahan Baku",
-                            "url" => "laporan/bahan_baku",
-                            "icon" => "fa fa-file"
+                            "text"=>"Laporan Transaksi",
+                            "url"=>"laporan/transaksi",
+                            "icon"=>"fa fa-file"
                         ]);
 
                     });
-                }elseif ($level == LevelAccount::PRODUKSI){
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e) {
+                }elseif ($level == LevelAccount::CS) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
-                            "text" => "Produksi",
-                            "url" => "produksi",
-                            "icon" => "fa fa-file"
+                            "text"=>"Data Pengaduan",
+                            "url"=>"teller",
+                            "icon"=>"fa fa-file"
                         ]);
-                        $e->menu->add([
-                            "text" => "Laporan Produksi",
-                            "url" => "laporan/produksi",
-                            "icon" => "fa fa-file"
-                        ]);
-                    });
 
-                }elseif ($level == LevelAccount::PELANGGAN){
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e) {
                         $e->menu->add([
-                            "text" => "Pesanan",
-                            "url" => "orders",
-                            "icon" => "fa fa-file"
+                            "text"=>"Laporan Pengaduan",
+                            "url"=>"laporan/pengaduan",
+                            "icon"=>"fa fa-file"
                         ]);
-                    });
 
-                }elseif ($level == LevelAccount::KASIR){
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e) {
+                    });
+                }elseif ($level == LevelAccount::ANALIS_KREDIT) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
-                            "text" => "Penjualan",
-                            "url" => "penjualan",
-                            "icon" => "fa fa-file"
+                            "text"=>"Data Pengajuan",
+                            "url"=>"kredit/pengajuan",
+                            "icon"=>"fa fa-file"
                         ]);
-                    });
 
+                        $e->menu->add([
+                            "text"=>"Laporan Pengajuan",
+                            "url"=>"laporan/pengajuan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                    });
+                }elseif ($level == LevelAccount::ADMIN_KREDIT) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
+                        $e->menu->add([
+                            "text"=>"Data Pencairan",
+                            "url"=>"kredit/pencairan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text"=>"Laporan Pencairan",
+                            "url"=>"laporan/pencairan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                    });
+                }elseif ($level == LevelAccount::KOORDINATOR_KREDIT) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
+                        $e->menu->add([
+                            "text"=>"Monitoring Data Pengajuan",
+                            "url"=>"kredit/pengajuan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text"=>"Monitoring Data Pencairan",
+                            "url"=>"kredit/pencairan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text"=>"Laporan Pengajuan",
+                            "url"=>"laporan/pengajuan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text"=>"Laporan Pencairan",
+                            "url"=>"laporan/pencairan",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                    });
+                }elseif ($level == LevelAccount::KOORDINATOR_OPERASIONAL) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
+                        $e->menu->add([
+                            "text"=>"Data Transaksi",
+                            "url"=>"transaksi",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+
+                        $e->menu->add([
+                            "text"=>"Laporan Transaksi",
+                            "url"=>"laporan/transaksi",
+                            "icon"=>"fa fa-file"
+                        ]);
+
+                    });
                 }
-
                 Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                     $e->menu->add([
                         "text"=>"Logout",
                         "url"=>"logout",
                         "icon"=>"fa fa-sign-out-alt"
                     ]);
-
                 });
             }
 
