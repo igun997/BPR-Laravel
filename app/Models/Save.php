@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $save_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * 
+ * @property User $user
  *
  * @package App\Models
  */
@@ -45,4 +47,9 @@ class Save extends Model
 		'user_id',
 		'save_date'
 	];
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }

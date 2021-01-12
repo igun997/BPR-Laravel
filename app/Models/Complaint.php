@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $complaint_type_id
+ * @property int $user_id
  * @property string $subject
  * @property string|null $content
  * @property int $status
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $updated_at
  * 
  * @property ComplaintType $complaint_type
+ * @property User $user
  *
  * @package App\Models
  */
@@ -30,11 +32,13 @@ class Complaint extends Model
 
 	protected $casts = [
 		'complaint_type_id' => 'int',
+		'user_id' => 'int',
 		'status' => 'int'
 	];
 
 	protected $fillable = [
 		'complaint_type_id',
+		'user_id',
 		'subject',
 		'content',
 		'status'
@@ -43,5 +47,10 @@ class Complaint extends Model
 	public function complaint_type()
 	{
 		return $this->belongsTo(ComplaintType::class);
+	}
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
 	}
 }
