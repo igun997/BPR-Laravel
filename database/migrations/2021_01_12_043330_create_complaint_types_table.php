@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductionMaterialsTable extends Migration
+class CreateComplaintTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateProductionMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('production_materials', function (Blueprint $table) {
+        Schema::create('complaint_types', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->double('qty');
-            $table->integer('product_id')->nullable()->index('product_id');
-            $table->integer('production_id')->index('production_id');
+            $table->integer('name');
+            $table->date('created_at')->nullable();
+            $table->date('updated_at')->nullable();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateProductionMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('production_materials');
+        Schema::dropIfExists('complaint_types');
     }
 }

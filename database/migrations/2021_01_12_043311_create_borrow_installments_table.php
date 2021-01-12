@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSupliersTable extends Migration
+class CreateBorrowInstallmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateSupliersTable extends Migration
      */
     public function up()
     {
-        Schema::create('supliers', function (Blueprint $table) {
+        Schema::create('borrow_installments', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('name', 100);
-            $table->text('alamat');
-            $table->string('no_hp', 100);
-            $table->date('created_at')->nullable();
+            $table->integer('amount');
+            $table->integer('borrow_id')->index('borrow_id');
             $table->date('updated_at')->nullable();
+            $table->date('created_at')->nullable();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateSupliersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supliers');
+        Schema::dropIfExists('borrow_installments');
     }
 }

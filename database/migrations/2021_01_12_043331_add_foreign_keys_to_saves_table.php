@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToOrdersTable extends Migration
+class AddForeignKeysToSavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeysToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->foreign('user_id', 'orders_ibfk_1')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::table('saves', function (Blueprint $table) {
+            $table->foreign('user_id', 'saves_ibfk_1')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignKeysToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign('orders_ibfk_1');
+        Schema::table('saves', function (Blueprint $table) {
+            $table->dropForeign('saves_ibfk_1');
         });
     }
 }

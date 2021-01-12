@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToMaterialsTable extends Migration
+class AddForeignKeysToBorrowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeysToMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::table('materials', function (Blueprint $table) {
-            $table->foreign('size_id', 'materials_ibfk_1')->references('id')->on('sizes')->onUpdate('CASCADE')->onDelete('CASCADE');
+        Schema::table('borrows', function (Blueprint $table) {
+            $table->foreign('user_id', 'borrows_ibfk_1')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -25,8 +25,8 @@ class AddForeignKeysToMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::table('materials', function (Blueprint $table) {
-            $table->dropForeign('materials_ibfk_1');
+        Schema::table('borrows', function (Blueprint $table) {
+            $table->dropForeign('borrows_ibfk_1');
         });
     }
 }
