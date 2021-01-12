@@ -17,6 +17,9 @@ class Auth extends Controller
     }
 
     public function index(){
+        if(session()->get("id")){
+            return  redirect()->route("dashboard");
+        }
         return view("login");
     }
 

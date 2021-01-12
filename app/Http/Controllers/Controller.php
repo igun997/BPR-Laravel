@@ -29,4 +29,9 @@ class Controller extends BaseController
     {
         return back()->withErrors(["msg"=>(($is_add)?"Gagal Tambah Data":"Gagal Update Data")]);
     }
+
+    public function allowedAccess($type = [])
+    {
+        return "gateway:".implode("|",$type);
+    }
 }

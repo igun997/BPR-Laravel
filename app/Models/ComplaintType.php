@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class ComplaintType
  * 
  * @property int $id
- * @property int $name
+ * @property string $name
  * @property string|null $deleted_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -28,10 +28,6 @@ class ComplaintType extends Model
 {
 	use SoftDeletes;
 	protected $table = 'complaint_types';
-
-	protected $casts = [
-		'name' => 'int'
-	];
 
 	protected $fillable = [
 		'name'

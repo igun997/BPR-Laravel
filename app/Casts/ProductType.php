@@ -2,28 +2,26 @@
 
 namespace App\Casts;
 
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-class StatusAccount
+class ProductType
 {
-    CONST INACTIVE = 0;
-    CONST ACTIVE = 1;
+    const  DEPOSITO = 1;
+    const  KREDIT = 0;
+
 
     public static function lang($level)
     {
-        if ($level == self::ACTIVE){
-            return "Aktif";
-        }elseif ($level == self::INACTIVE){
-            return "Tidak Aktif";
-        }else{
-            return  FALSE;
+        if ($level == self::DEPOSITO){
+            return "Deposito";
+        }elseif ($level == self::KREDIT){
+            return "Kredit";
         }
     }
 
     public static function select($level)
     {
         $select = [];
-        for ($i = 0; $i <= 2; $i++){
+        for ($i = 0; $i <= 1; $i++){
             $select[] = [
                 "id"=>$i,
                 "text"=>self::lang($i),
@@ -32,4 +30,10 @@ class StatusAccount
         }
         return $select;
     }
+
+    public static function redirect()
+    {
+        return route("dashboard");
+    }
+
 }

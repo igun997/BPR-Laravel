@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <a href="{{route("master.complaint.add")}}" class="btn btn-success btn-flat">
+                        <a href="{{route("master.akun.add")}}" class="btn btn-success btn-flat">
                             Tambah Data
                         </a>
                     </div>
@@ -25,7 +25,14 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kategori</th>
+                                    <th>Nama Pengguna</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Alamat</th>
+                                    <th>No HP</th>
+                                    <th>Level</th>
+                                    <th>Status</th>
+                                    <th>No Rekening</th>
                                     <th>Dibuat</th>
                                     <th>Diubah</th>
                                     <th>Aksi</th>
@@ -36,14 +43,21 @@
                                 <tr>
                                     <td>{{($key+1)}}</td>
                                     <td>{{$complaint->name}}</td>
+                                    <td>{{$complaint->email}}</td>
+                                    <td>{{$complaint->username}}</td>
+                                    <td>{{$complaint->alamat}}</td>
+                                    <td>{{$complaint->no_hp}}</td>
+                                    <td>{{\App\Casts\LevelAccount::lang($complaint->level)}}</td>
+                                    <td>{{\App\Casts\StatusAccount::lang($complaint->status)}}</td>
+                                    <td>{{$complaint->no_rekening}}</td>
                                     <td>{{$complaint->created_at->format("d/m/Y")}}</td>
                                     <td>{{$complaint->updated_at->format("d/m/Y")}}</td>
                                     <td>
-                                        <a href="{{route("master.complaint.update",$complaint->id)}}" class="btn btn-warning btn-flat m-1">
+                                        <a href="{{route("master.akun.update",$complaint->id)}}" class="btn btn-warning btn-flat m-1">
                                             <li class="fa fa-edit"></li>
                                         </a>
 
-                                        <a href="{{route("master.complaint.delete",$complaint->id)}}" onclick="return confirm('Apakah Anda Yakin ? ')" class="btn btn-danger btn-flat m-1">
+                                        <a href="{{route("master.akun.delete",$complaint->id)}}" onclick="return confirm('Apakah Anda Yakin ? ')" class="btn btn-danger btn-flat m-1">
                                             <li class="fa fa-trash"></li>
                                         </a>
                                     </td>

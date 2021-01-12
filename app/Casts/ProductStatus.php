@@ -7,7 +7,6 @@ class ProductStatus
 {
     const  ACTIVE = 1;
     const  INACTIVE = 0;
-    const  DELETED = 2;
 
 
     public static function lang($level)
@@ -16,9 +15,20 @@ class ProductStatus
             return "Aktif";
         }elseif ($level == self::INACTIVE){
             return "Tidak Aktif";
-        }elseif ($level == self::DELETED){
-            return "Di Hapus";
         }
+    }
+
+    public static function select($level)
+    {
+        $select = [];
+        for ($i = 0; $i <= 1; $i++){
+            $select[] = [
+                "id"=>$i,
+                "text"=>self::lang($i),
+                "selected"=>($level == $i)
+            ];
+        }
+        return $select;
     }
 
     public static function redirect()

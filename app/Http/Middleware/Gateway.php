@@ -48,7 +48,11 @@ class Gateway
                             "url"=>"master/complaint",
                             "icon"=>"fa fa-file"
                         ]);
-
+                        $e->menu->add([
+                            "text"=>"Data Produk",
+                            "url"=>"master/produk",
+                            "icon"=>"fa fa-file"
+                        ]);
                         $e->menu->add([
                             "text"=>"Data Akun",
                             "url"=>"master/akun",
