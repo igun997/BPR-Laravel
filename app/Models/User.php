@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $alamat
  * @property string|null $no_hp
  * @property int $level
+ * @property string|null $ktp
+ * @property string|null $no_ktp
  * @property int $status
  * @property string|null $no_rekening
  * @property Carbon|null $created_at
@@ -52,6 +54,8 @@ class User extends Model
 		'alamat',
 		'no_hp',
 		'level',
+		'ktp',
+		'no_ktp',
 		'status',
 		'no_rekening'
 	];
