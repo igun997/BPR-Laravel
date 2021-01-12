@@ -1,114 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!doctype html>
-<html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield("title")</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{url("assets/img/favicon.ico")}}">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="{{url("assets/css/bootstrap.min.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/owl.carousel.min.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/flaticon.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/slicknav.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/animate.min.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/magnific-popup.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/fontawesome-all.min.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/themify-icons.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/slick.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/nice-select.css")}}">
-    <link rel="stylesheet" href="{{url("assets/css/style.css")}}">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+    <title>PT BPR Bumi Bandung Kencana</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Mamba - v2.1.0
+    * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    @yield("css")
 </head>
 
 <body>
-<!--? Preloader Start -->
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="{{url("logo.png")}}" alt="">
+
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+        <div class="contact-info float-left">
+            <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a>
+            <i class="icofont-phone"></i> (022) 6016018
+        </div>
+        <div class="social-links float-right">
+            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+            <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+            <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+            <a href="#" class="skype"><i class="icofont-skype"></i></a>
+            <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container">
+
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="/"><img src="/assets/img/logobbk_1.png"></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo 0-->
+            <!-- <a href="index.html"><img src="/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="#hero">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#karir">Karir</a></li>
+                <li class="drop-down"><a href="#produk">Produk</a>
+                    <ul>
+                        <li><a href="#produk">Tabungan Kencana</a></li>
+                        <li><a href="#produk">Deposito Kencana</a></li>
+                        <li><a href="#produk">Kredit Pegawai</a></li>
+                        <li><a href="#produk">Kredit Pensiun</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pko">Pengajuan Kredit Online</a></li>
+                <li><a href="{{route("login")}}">Login</a></li>
+
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+@if(Route::currentRouteName() == "landing.index")
+<section id="hero">
+    <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background-image: url('/assets/img/bbkmelong1.jpg');">
+                    <div class="carousel-container">
+                        <div class="carousel-content container">
+                            <h2 class="animated fadeInDown">Welcome to <span>BPRBBK</span></h2>
+                            <p class="animated fadeInUp">PT BPR Bumi Bandung Kencana merupakan perusahaan yang bergerak di bidang perbankan. Perusahaan ini sudah berdiri sejak tahun 2000 sampai dengan sekarang. Kami membantu nasabah yang membutuhkan kredit dengan berbagai macam produk</p>
+                            <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item" style="background-image: url('/assets/img/bbksriwijaya.jpg');">
+                    <div class="carousel-container">
+                        <div class="carousel-content container">
+                            <h2 class="animated fadeInDown">Lorem Ipsum Dolor</h2>
+                            <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                            <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item" style="background-image: url('/assets/img/bbksubang1.jpg');">
+                    <div class="carousel-container">
+                        <div class="carousel-content container">
+                            <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</h2>
+                            <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                            <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+</section><!-- End Hero -->
+@endif
+
+<main id="main">
+    @yield("content")
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-2 col-md-6 footer-info">
+                    <h3></h3>
+                    <p>
+                        <b>Kantor Pusat</b><br>
+                        Jl. Melong Asih No.30, Melong<br>Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40534
+                        <br><br>
+                        <strong>Phone:</strong><br> (022) 6016018<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-info">
+                    <h3></h3>
+                    <p>
+                        <b>Cabang 1</b><br>
+                        Jl. Sriwijaya No.26, Cigereleng<br>Kec. Regol, Kota Bandung, Jawa Barat 40253
+                        <br><br>
+                        <strong>Phone:</strong><br> (022) 5229730<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-info">
+                    <h3></h3>
+                    <p>
+                        <b>Cabang 2</b><br>
+                        Jl. Kapten Hanafiah No.01, Karanganyar<br>Kec. Subang, Kabupaten Subang, Jawa Barat 41211
+                        <br><br>
+                        <strong>Phone:</strong><br> (0260) 417063<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#profile">Profile</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#karir">Karir</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#pko">Pengajuan Kredit Online</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#produk">Produk</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#informasi">Informasi</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#tkp">Tata Kelola Perusahaan</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+                    <p>Get news delivered directly to your inbox</p>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div><br>
+                    <p>PT BPR Bumi Bandung Kecana terdaftar dan diawasi oleh
+                        <a target="_blank" href="https://ojk.go.id/id/Default.aspx">Otoritas Jasa Keuangan</a><br>
+                        <img src="/assets/img/ojk_white.png" style="width:; height:50px;">
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-<!-- Preloader Start -->
-<header>
-    <!-- Header Start -->
-    <div class="header-area">
-        <div class="main-header header-sticky">
-            <div class="container-fluid">
-                <div class="menu-wrapper">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <img src="{{url("logo.png")}}" class="img-fluid" style="height: 60px" alt="">
-                    </div>
-                    <!-- Main-menu -->
-                    <div class="main-menu d-none d-lg-block">
-                        <nav>
-                            <ul id="navigation">
-                                <li><a href="/">Beranda</a></li>
-                                <li><a href="/">Produk Kami</a></li>
-                                <li><a href="/">Tentang Rumah Retro</a></li>
-                                <li><a href="/">Hubungi Kami</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- Header Right -->
-                    <div class="header-right">
-                        <ul>
-                            <li> <a href="{{route("login")}}"><span class="flaticon-user"></span></a></li>
-                            <li><a href="{{route("store.cart")}}"><span class="flaticon-shopping-cart"></span></a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Mobile Menu -->
-                <div class="col-12">
-                    <div class="mobile_menu d-block d-lg-none"></div>
-                </div>
-            </div>
+
+    <!--  <div class="col-lg-3 col-md-6 footer-links">
+       <p>PT BPR Bumi Bandung Kecana terdaftar dan diawasi oleh</p><br>
+         <ul><li><a href="https://ojk.go.id/id/Default.aspx">Otoritas Jasa Keuangan</a></li></ul>
+     </div> -->
+
+    <div class="container">
+        <div class="copyright">
+            &copy;<strong><span> 2020 PT BPR Bumi Bandung Kencana</span></strong>
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/ -->
+            <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
         </div>
     </div>
-    <!-- Header End -->
-</header>
-<main>
-   @yield("content")
-</main>
-<!-- Search model end -->
+</footer><!-- End Footer -->
 
-<!-- JS here -->
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-<script src="{{url("assets/js/vendor/modernizr-3.5.0.min.js")}}"></script>
-<!-- Jquery, Popper, Bootstrap -->
-<script src="{{url("assets/js/vendor/jquery-1.12.4.min.js")}}"></script>
-<script src="{{url("assets/js/popper.min.js")}}"></script>
-<script src="{{url("assets/js/bootstrap.min.js")}}"></script>
-<!-- Jquery Mobile Menu -->
-<script src="{{url("assets/js/jquery.slicknav.min.js")}}"></script>
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
+<script src="/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+<script src="/assets/vendor/venobox/venobox.min.js"></script>
+<script src="/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/assets/vendor/counterup/counterup.min.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/aos/aos.js"></script>
 
-<!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="{{url("assets/js/owl.carousel.min.js")}}"></script>
-<script src="{{url("assets/js/slick.min.js")}}"></script>
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
 
-<!-- One Page, Animated-HeadLin -->
-<script src="{{url("assets/js/wow.min.js")}}"></script>
-<script src="{{url("assets/js/animated.headline.js")}}"></script>
-<script src="{{url("assets/js/jquery.magnific-popup.js")}}"></script>
-
-<!-- Scrollup, nice-select, sticky -->
-<script src="{{url("assets/js/jquery.scrollUp.min.js")}}"></script>
-<script src="{{url("assets/js/jquery.nice-select.min.js")}}"></script>
-<script src="{{url("assets/js/jquery.sticky.js")}}"></script>
-
-<!-- Jquery Plugins, main Jquery -->
-<script src="{{url("assets/js/plugins.js")}}"></script>
-<script src="{{url("assets/js/main.js")}}"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
 @yield("js")
-@include("msg")
 </body>
+
 </html>

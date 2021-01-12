@@ -1,6 +1,6 @@
 vendor/
 !public/vendor
-!public/assets/js/vendor
+!public/assets/vendor
 .idea
 storage
 .env

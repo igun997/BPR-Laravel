@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Rumah Retro',
-    'title_prefix' => 'Rumah Retro - ',
+    'title' => 'BPRBBK',
+    'title_prefix' => 'BPRBBK - ',
     'title_postfix' => '',
 
     /*
