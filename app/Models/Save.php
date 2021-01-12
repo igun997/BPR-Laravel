@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Created by Reliese Model.
+ */
+
+namespace App\Models;
+
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * Class Save
+ * 
+ * @property int $id
+ * @property int $type
+ * @property int $status
+ * @property float $amount
+ * @property int $user_id
+ * @property Carbon|null $save_date
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ *
+ * @package App\Models
+ */
+class Save extends Model
+{
+	protected $table = 'saves';
+
+	protected $casts = [
+		'type' => 'int',
+		'status' => 'int',
+		'amount' => 'float',
+		'user_id' => 'int'
+	];
+
+	protected $dates = [
+		'save_date'
+	];
+
+	protected $fillable = [
+		'type',
+		'status',
+		'amount',
+		'user_id',
+		'save_date'
+	];
+}
