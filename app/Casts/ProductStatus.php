@@ -2,13 +2,13 @@
 
 namespace App\Casts;
 
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-class StatusAccount
+class ProductStatus
 {
-    CONST INACTIVE = 0;
-    CONST ACTIVE = 1;
-    const DELETED = 2;
+    const  ACTIVE = 1;
+    const  INACTIVE = 0;
+    const  DELETED = 2;
+
 
     public static function lang($level)
     {
@@ -18,8 +18,12 @@ class StatusAccount
             return "Tidak Aktif";
         }elseif ($level == self::DELETED){
             return "Di Hapus";
-        }else{
-            return  FALSE;
         }
     }
+
+    public static function redirect()
+    {
+        return route("dashboard");
+    }
+
 }

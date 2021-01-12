@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $amount
  * @property int $product_id
  * @property float $interest
+ * @property int $status
  * @property Carbon|null $due_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -31,7 +32,8 @@ class Deposito extends Model
 	protected $casts = [
 		'amount' => 'float',
 		'product_id' => 'int',
-		'interest' => 'float'
+		'interest' => 'float',
+		'status' => 'int'
 	];
 
 	protected $dates = [
@@ -42,6 +44,7 @@ class Deposito extends Model
 		'amount',
 		'product_id',
 		'interest',
+		'status',
 		'due_date'
 	];
 
