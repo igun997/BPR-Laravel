@@ -67,6 +67,13 @@ Route::prefix("pengaduan")->name("complaint.")->group(function (){
     Route::get("/detail/{id}","Pengaduan@detail")->name("detail");
 });
 
+Route::prefix("teller")->name("teller.")->group(function (){
+    Route::get("/","Teller@index")->name("list");
+    Route::post("/update_status","Teller@update_status")->name("update_status");
+    Route::get("/delete/{id}","Teller@delete")->name("delete");
+    Route::get("/detail/{id}","Teller@detail")->name("detail");
+});
+
 
 
 
