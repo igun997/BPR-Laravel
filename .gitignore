@@ -1,5 +1,6 @@
 vendor/
 !public/vendor
+public/uploads
 !public/assets/vendor
 .idea
 storage/framework/*

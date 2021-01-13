@@ -94,36 +94,16 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 icon-box" data-aos="fade-up">
-                    <div class="icon"><i class="icofont-computer"></i></div>
-                    <h4 class="title"><a href="">Tabungan Kencana</a></h4>
-                    <p class="description">Tabungan kencana adalah produk simpanan di BPR Bumi Bandung Kencana baik untuk perorangan maupun badan usaha yang penarikannya hanya dapat dilakukan menurut syarat tertentu yang disepakati</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
-                    <h4 class="title"><a href="">Deposito Kencana</a></h4>
-                    <p class="description">Deposito Kencana adalah Simpanan yang penarikannya hanya dapat dilakukan pada waktu tertentu berdasarkan perjanjian Nasabah Penyimpan dengan Bank BPR</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon"><i class="icofont-earth"></i></div>
-                    <h4 class="title"><a href="">Kredit Pegawai</a></h4>
-                    <p class="description">Kredit Pegawai adalah kredit yang diberikan bagi pegawai ASN, pegawai swasta dan Tenaga Kerja Kontrak (TKK) / Tenaga Harian Lepas (THL) di lingkungan Pemerintah Daerah, dengan pembayaran angsuran dipotong dari gaji / tunjangan kinerja / tunjangan tambahan penghasilan</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon"><i class="icofont-image"></i></div>
-                    <h4 class="title"><a href="">Kredit Pensiun</a></h4>
-                    <p class="description">Kredit Pensiun adalah kredit yang diberikan kepada pensiunan yang pembayaran gaji pensiunan nya dibayarkan di Kantor Pos maupun di Bank Umum yang telah melakukan perjanjian kerjasama dengan BPR, dengan usia masuk mulai 70 tahun sampai dengan jatuh tempo di kredit maksimal usia pensiun 85 tahun dengan pembayaran angsuran dipotong dari gaji di kantor bayar tersebut</p>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                  <div class="icon"><i class="icofont-settings"></i></div>
-                  <h4 class="title"><a href="">Nemo Enim</a></h4>
-                  <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                </div>
-                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                  <div class="icon"><i class="icofont-tasks-alt"></i></div>
-                  <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                  <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                </div> -->
+               @foreach($product as $k => $v)
+                    <div class="col-md-6 icon-box" data-aos="fade-up">
+                        <div class="icon">
+                            <img src="{{$v->img}}" class="img-fluid img-rounded rounded-circle img-thumbnail " style="height: 120px" alt="">
+                        </div>
+                        <h4 class="title"><a href="">{{$v->name}}</a></h4>
+                        <p class="description">{{$v->description}}</p>
+                    </div>
+                @endforeach
+
             </div>
 
         </div>

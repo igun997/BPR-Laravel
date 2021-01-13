@@ -69,7 +69,8 @@
             <ul>
                 <li class="active"><a href="#hero">Home</a></li>
                 <li><a href="#profile">Profile</a></li>
-                <li><a href="#karir">Karir</a></li>
+                <li><a href="#pko">Pengajuan Kredit Online</a></li>
+
                 <li class="drop-down"><a href="#produk">Produk</a>
                     <ul>
                         <li><a href="#produk">Tabungan Kencana</a></li>
@@ -78,7 +79,6 @@
                         <li><a href="#produk">Kredit Pensiun</a></li>
                     </ul>
                 </li>
-                <li><a href="#pko">Pengajuan Kredit Online</a></li>
                 <li><a href="{{route("login")}}">Login</a></li>
 
             </ul>

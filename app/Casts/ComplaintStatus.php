@@ -26,7 +26,18 @@ class ComplaintStatus
             return "Pengaduan Ditutup";
         }
     }
-
+    public static function select($level)
+    {
+        $select = [];
+        for ($i = 0; $i <= 4; $i++){
+            $select[] = [
+                "id"=>$i,
+                "text"=>self::lang($i),
+                "selected"=>($level == $i)
+            ];
+        }
+        return $select;
+    }
     public static function redirect()
     {
         return route("dashboard");

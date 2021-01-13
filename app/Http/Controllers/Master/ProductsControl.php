@@ -35,7 +35,8 @@ class ProductsControl extends Controller
     {
         $data = $req->all();
         if ($req->has("img")){
-            if($req->img == null){
+            $data["img"] = $this->uploader($req,"img");
+            if( $data["img"] == null){
                 $data["img"] = "-";
             }
         }else{
@@ -57,7 +58,7 @@ class ProductsControl extends Controller
     public function update(Request $req,$id)
     {
         $data = Product::findOrFail($id);
-        $title = "Update Kategori Komplain";
+        $title = "Update Produk";
         $route = route("master.produk.update_action",$id);
         return $this->loadView("form",compact("title","data","route"));
     }
@@ -66,7 +67,8 @@ class ProductsControl extends Controller
     {
         $data = $req->all();
         if ($req->has("img")){
-            if($req->img == null){
+            $data["img"] = $this->uploader($req,"img");
+            if( $data["img"] == null){
                 $data["img"] = "-";
             }
         }else{

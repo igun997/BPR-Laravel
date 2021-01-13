@@ -14,7 +14,7 @@
                     <div class="card-title">{{$title}}</div>
                 </div>
                 <div class="card-body">
-                    <form action="{{$route??route("master.produk.add_action")}}" method="post">
+                    <form action="{{$route??route("master.produk.add_action")}}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Nama Produk</label>
                         <input type="text" name="name" value="{{$data->name??""}}" class="form-control">
@@ -44,7 +44,7 @@
                         </select>
                     </div>
                     <div class="form-group text-center">
-                        <img src="{{$data->month_term ?? ""}}" class="img-fluid img-thumbnail text-center" alt="">
+                        <img src="{{$data->img ?? ""}}" class="img-fluid img-thumbnail text-center" alt="">
                     </div>
                     <div class="form-group">
                         <label for="img">Gambar Produk</label>

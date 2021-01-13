@@ -60,6 +60,13 @@ Route::prefix("master")->namespace("Master")->name("master.")->group(function ()
 
 });
 
+Route::prefix("pengaduan")->name("complaint.")->group(function (){
+    Route::get("/","Pengaduan@index")->name("list");
+    Route::post("/update_status","Pengaduan@update_status")->name("update_status");
+    Route::get("/delete/{id}","Pengaduan@delete")->name("delete");
+    Route::get("/detail/{id}","Pengaduan@detail")->name("detail");
+});
+
 
 
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Landing;
 
+use App\Casts\ProductStatus;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Traits\ViewTrait;
 use Illuminate\Http\Request;
 
@@ -17,6 +19,7 @@ class Index extends Controller
     public function index()
     {
         $title = "Selamat Datang Di BPR Bakti Kencana";
-        return $this->loadView("index",compact("title"));
+        $product = Product::where(["status"=>ProductStatus::ACTIVE])->get();
+        return $this->loadView("index",compact("title","product"));
     }
 }

@@ -85,7 +85,7 @@ class Gateway
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
                             "text"=>"Data Pengaduan",
-                            "url"=>"teller",
+                            "url"=>"pengaduan",
                             "icon"=>"fa fa-file"
                         ]);
 
