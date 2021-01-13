@@ -32,6 +32,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * 
  * @property Collection|Borrow[] $borrows
  * @property Collection|Complaint[] $complaints
+ * @property Collection|Deposito[] $depositos
  * @property Collection|Save[] $saves
  *
  * @package App\Models
@@ -72,6 +73,11 @@ class User extends Model
 	public function complaints()
 	{
 		return $this->hasMany(Complaint::class);
+	}
+
+	public function depositos()
+	{
+		return $this->hasMany(Deposito::class);
 	}
 
 	public function saves()

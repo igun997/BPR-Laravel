@@ -69,9 +69,20 @@ Route::prefix("pengaduan")->name("complaint.")->group(function (){
 
 Route::prefix("teller")->name("teller.")->group(function (){
     Route::get("/","Teller@index")->name("list");
-    Route::post("/update_status","Teller@update_status")->name("update_status");
+    Route::get("/update_status/{id}","Teller@update_status")->name("update_status");
     Route::get("/delete/{id}","Teller@delete")->name("delete");
     Route::get("/detail/{id}","Teller@detail")->name("detail");
+});
+
+
+Route::prefix("transaksi")->name("transaksi.")->group(function (){
+    Route::get("/","Transaksi@index")->name("list");
+    Route::get("/update_status/{id}","Transaksi@update_status")->name("update_status");
+    Route::get("/delete/{id}","Transaksi@delete")->name("delete");
+    Route::get("/detail/{id}","Transaksi@detail")->name("detail");
+    Route::get("/debit/{id}","Transaksi@debit")->name("debit");
+    Route::get("/kredit/{id}","Transaksi@kredit")->name("kredit");
+    Route::post("/submit/{id}","Transaksi@submit")->name("submit");
 });
 
 

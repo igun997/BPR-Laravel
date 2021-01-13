@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $type
  * @property int $status
  * @property float $amount
+ * @property string|null $notes
  * @property int $user_id
  * @property Carbon|null $save_date
  * @property Carbon|null $created_at
@@ -47,6 +48,7 @@ class Save extends Model
 		'type',
 		'status',
 		'amount',
+		'notes',
 		'user_id',
 		'save_date'
 	];

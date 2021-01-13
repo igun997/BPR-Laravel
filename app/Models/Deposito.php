@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $id
  * @property float $amount
  * @property int $product_id
+ * @property int $user_id
  * @property float $interest
  * @property int $status
  * @property Carbon|null $due_date
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $deleted_at
  * 
  * @property Product $product
+ * @property User $user
  *
  * @package App\Models
  */
@@ -35,6 +37,7 @@ class Deposito extends Model
 	protected $casts = [
 		'amount' => 'float',
 		'product_id' => 'int',
+		'user_id' => 'int',
 		'interest' => 'float',
 		'status' => 'int'
 	];
@@ -46,6 +49,7 @@ class Deposito extends Model
 	protected $fillable = [
 		'amount',
 		'product_id',
+		'user_id',
 		'interest',
 		'status',
 		'due_date'
@@ -54,5 +58,10 @@ class Deposito extends Model
 	public function product()
 	{
 		return $this->belongsTo(Product::class);
+	}
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
 	}
 }

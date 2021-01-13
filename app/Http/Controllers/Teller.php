@@ -22,4 +22,26 @@ class Teller extends Controller
         $nasabah = User::where(["level"=>LevelAccount::NASABAH])->get();
         return $this->loadView("index",compact("title","nasabah"));
     }
+
+    public function detail($id)
+    {
+        $title = "Detail Nasabah";
+        $nasabah = User::where(["id"=>$id,"level"=>LevelAccount::NASABAH])->first();
+        if ($nasabah){
+            return $this->loadView("detail",compact("nasabah","title"));
+        }
+        return $this->failBack(false);
+    }
+
+    public function update_status(Request $req,$id)
+    {
+        $req->validate([
+            "status"=>"required"
+        ]);
+        $create = User::where(["id"=>$id])->update(["status"=>$req->status]);
+        if ($create){
+            return $this->successRedirect("teller.list",false);
+        }
+        return  $this->failBack(false);
+    }
 }
