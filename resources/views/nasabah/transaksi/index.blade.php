@@ -8,21 +8,35 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 col-md-12">
+        <div class="col-12 col-md-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="info-box  bg-gradient-success">
+                        <span class="info-box-icon"><i class="fa fa-money-bill"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Sisa Saldo</span>
+                            <span class="info-box-number">Rp. {{number_format(\App\Casts\Helpers\SaveHelper::verifyBalance(session()->get("id")))}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="info-box  bg-gradient-danger">
+                        <span class="info-box-icon"><i class="fa fa-money-check"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Pengeluaran</span>
+                            <span class="info-box-number">Rp. {{number_format(\App\Casts\Helpers\SaveHelper::verifyDebit(session()->get("id")))}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">{{$title}}</div>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12">
-                            <a href="{{route("transaksi.add",\App\Casts\SaveType::KREDIT)}}" class="btn btn-success btn-flat m-2">
-                                <li class="fa fa-plus"></li>
-                            </a>
-                            <a href="{{route("transaksi.add",\App\Casts\SaveType::DEBIT)}}" class="btn btn-danger btn-flat m-2">
-                                <li class="fa fa-minus"></li>
-                            </a>
-                        </div>
                         <div class="col-12">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
@@ -47,17 +61,9 @@
                                             <td>{{number_format($save->amount)}}</td>
                                             <td>{{\App\Casts\SaveStatus::lang($save->status)}}</td>
                                             <td>
-                                                <a href="{{route("transaksi.detail",$save->id)}}" class="btn btn-flat btn-primary  m-1">
+                                                <a href="{{route("nasabah.transaksi.detail",$save->id)}}" class="btn btn-flat btn-primary  m-1">
                                                     <li class="fa fa-eye"></li>
                                                 </a>
-                                                @if($save->status === \App\Casts\SaveStatus::REVIEWED && session()->get("level") == \App\Casts\LevelAccount::KOORDINATOR_OPERASIONAL)
-                                                    <a href="{{route("transaksi.update_status",[$save->id,"status"=>\App\Casts\SaveStatus::VERIFIED])}}" class="btn btn-flat btn-success  m-1">
-                                                        <li class="fa fa-check"></li>
-                                                    </a>
-                                                    <a href="{{route("transaksi.update_status",[$save->id,"status"=>\App\Casts\SaveStatus::REJECTED])}}" class="btn btn-flat btn-danger  m-1">
-                                                        <li class="fa fa-ban"></li>
-                                                    </a>
-                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

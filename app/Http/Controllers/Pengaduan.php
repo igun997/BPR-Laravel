@@ -13,7 +13,7 @@ class Pengaduan extends Controller
     public function __construct()
     {
         $this->base = "pengaduan";
-        $this->middleware($this->allowedAccess([LevelAccount::CS]));
+        $this->middleware($this->allowedAccess([LevelAccount::CS,LevelAccount::KOORDINATOR_OPERASIONAL]));
     }
 
 

@@ -86,7 +86,7 @@ class Gateway
                         $e->menu->add([
                             "text"=>"Data Pengaduan",
                             "url"=>"pengaduan",
-                            "icon"=>"fa fa-file"
+                            "icon"=>"fa fa-headphones"
                         ]);
 
                         $e->menu->add([
@@ -161,12 +161,32 @@ class Gateway
                             "icon"=>"fa fa-file"
                         ]);
 
+                        $e->menu->add([
+                            "text"=>"Data Pengaduan",
+                            "url"=>"pengaduan",
+                            "icon"=>"fa fa-headphones"
+                        ]);
 
                         $e->menu->add([
                             "text"=>"Laporan Transaksi",
                             "url"=>"laporan/transaksi",
                             "icon"=>"fa fa-file"
                         ]);
+
+                    });
+                }elseif ($level == LevelAccount::NASABAH) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
+                        $e->menu->add([
+                            "text"=>"History Transaksi",
+                            "url"=>"nasabah/transaksi",
+                            "icon"=>"fa fa-list"
+                        ]);
+                        $e->menu->add([
+                            "text"=>"Kredit Online",
+                            "url"=>"nasabah/kredit",
+                            "icon"=>"fa fa-money-bill"
+                        ]);
+
 
                     });
                 }

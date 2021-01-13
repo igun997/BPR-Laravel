@@ -18,6 +18,18 @@ class SaveHelper
         return ($kredit - $debit);
     }
 
+    public static function verifyDebit($id)
+    {
+        $debit = Save::where(["user_id"=>$id,"type"=>SaveType::DEBIT,"status"=>SaveStatus::VERIFIED])->sum("amount");
+        return $debit;
+    }
+
+    public static function verifyKredit($id)
+    {
+        $kredit = Save::where(["user_id"=>$id,"type"=>SaveType::KREDIT,"status"=>SaveStatus::VERIFIED])->sum("amount");
+        return $kredit;
+    }
+
     public static function unverifyBalance($id)
     {
         $debit = Save::where(["user_id"=>$id,"type"=>SaveType::DEBIT,"status"=>SaveStatus::REVIEWED])->sum("amount");

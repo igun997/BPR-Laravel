@@ -14,17 +14,26 @@
                     <div class="card-title">{{$title}}</div>
                 </div>
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="nasabah">Nasabah</label>
-                        <select name="nasabah" id="nasabah" class="form-control">
-                            @foreach($nasabah as $k => $n)
-                                <option value="{{$n->id}}">{{$n->no_rekening}} - {{$n->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <a href="#" class="btn btn-flat btn-primary btn-block disabled" id="lanjutkan" disabled>Lanjutkan</a>
-                    </div>
+                    <form action="{{$route}}" method="post">
+                        <div class="form-group">
+                            <label for="amount">Total</label>
+                            @if($rules["max"] > 0)
+                                <input type="number" name="amount" class="form-control" min="{{$rules["min"]}}" required max="{{$rules["max"]}}">
+                            @else
+                                <input type="number" name="amount" class="form-control" min="{{$rules["min"]}}" required>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Catatan</label>
+                            <textarea name="notes" id="notes" cols="30" rows="4" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="type" hidden value="{{$type}}">
+                            <button type="submit" class="btn btn-success btn-flat btn-block">
+                                Simpan Transaksi
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -39,20 +48,6 @@
     @include("msg")
     <script>
         $(document).ready(function () {
-            const id = "btn btn-flat btn-primary btn-block ";
-            let user_id = null;
-            $("#nasabah").on("change",function (){
-                user_id = $(this).val();
-                if (user_id !== null){
-                    console.log("Ada")
-                    $("#lanjutkan").removeClass("disabled");
-                    $("#lanjutkan").prop("disabled",false);
-                    $("#lanjutkan").attr("href","{{($type == \App\Casts\SaveType::DEBIT)?route("transaksi.debit"):route("transaksi.kredit")}}/"+user_id);
-                }
-            })
-            $("#nasabah").select2();
-            $("#nasabah").val(parseInt("{{$nasabah[0]->id}}"));
-            $("#nasabah").trigger("change")
 
         })
     </script>

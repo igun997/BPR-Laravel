@@ -26,7 +26,7 @@ Route::get("/register","Auth@register")->name("register");
 Route::get("/logout","Auth@logout")->name("logout");
 
 
-Route::get("/dashboard","Dashboard@index")->middleware("gateway:0|1|2|3|4|5")->name("dashboard");
+Route::get("/dashboard","Dashboard@index")->middleware("gateway:0|1|2|3|4|5|6|7")->name("dashboard");
 //Admin
 
 Route::prefix("master")->namespace("Master")->name("master.")->group(function (){
@@ -80,9 +80,18 @@ Route::prefix("transaksi")->name("transaksi.")->group(function (){
     Route::get("/update_status/{id}","Transaksi@update_status")->name("update_status");
     Route::get("/delete/{id}","Transaksi@delete")->name("delete");
     Route::get("/detail/{id}","Transaksi@detail")->name("detail");
-    Route::get("/debit/{id}","Transaksi@debit")->name("debit");
-    Route::get("/kredit/{id}","Transaksi@kredit")->name("kredit");
-    Route::post("/submit/{id}","Transaksi@submit")->name("submit");
+    Route::get("/debit/{id?}","Transaksi@debit")->name("debit");
+    Route::get("/add/{id?}","Transaksi@add")->name("add");
+    Route::get("/kredit/{id?}","Transaksi@kredit")->name("kredit");
+    Route::post("/submit/{id?}","Transaksi@submit")->name("submit");
+});
+
+
+Route::prefix("nasabah")->name("nasabah.")->namespace("Nasabah")->group(function (){
+    Route::prefix("transaksi")->name("transaksi.")->group(function (){
+        Route::get("/","Transaksi@index")->name("list");
+        Route::get("/detail/{id}","Transaksi@detail")->name("detail");
+    });
 });
 
 
