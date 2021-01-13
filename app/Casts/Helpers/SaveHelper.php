@@ -36,4 +36,30 @@ class SaveHelper
         $kredit = Save::where(["user_id"=>$id,"type"=>SaveType::KREDIT,"status"=>SaveStatus::REVIEWED])->sum("amount");
         return ($kredit - $debit);
     }
+
+    /**
+     * @param $type
+     * @param $status
+     * @param $amount
+     * @param $notes
+     * @param $save_date
+     * @param $user_id
+     * @return bool
+     */
+    public static function createSave($type,$status,$amount,$notes,$save_date,$user_id)
+    {
+        $save = Save::create([
+            "type"=>$type,
+            "status"=>$status,
+            "amount"=>$amount,
+            "notes"=>$notes,
+            "user_id"=>$user_id,
+            "save_date"=>$save_date,
+        ]);
+        if ($save){
+            return true;
+        }
+
+        return  false;
+    }
 }

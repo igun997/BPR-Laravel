@@ -12,6 +12,8 @@ class BorrowStatus
     const  PENGAJUAN_DITOLAK = 4;
     const  PROSES_PENCAIRAN = 5;
     const  PENCAIRAN_BERHASIL = 6;
+    const  BERJALAN = 8;
+    const  SELESAI = 9;
     const  DIBATALKAN = 7;
 
 
@@ -33,11 +35,26 @@ class BorrowStatus
             return "Pencairan Berhasil";
         }elseif ($level == self::DIBATALKAN){
             return "Pengajuan Di Batalkan";
+        }elseif ($level == self::BERJALAN){
+            return "Pinjaman Aktif";
+        }elseif ($level == self::SELESAI){
+            return "Pinjaman Selesai";
         }else{
             return  FALSE;
         }
     }
-
+    public static function select($level)
+    {
+        $select = [];
+        for ($i = 0; $i <= 9; $i++){
+            $select[] = [
+                "id"=>$i,
+                "text"=>self::lang($i),
+                "selected"=>($level == $i)
+            ];
+        }
+        return $select;
+    }
     public static function redirect()
     {
         return route("dashboard");

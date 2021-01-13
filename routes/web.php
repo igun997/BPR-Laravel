@@ -94,7 +94,11 @@ Route::prefix("nasabah")->name("nasabah.")->namespace("Nasabah")->group(function
     });
     Route::prefix("kredit")->name("kredit.")->group(function (){
         Route::get("/","Kredit@index")->name("list");
-        Route::get("/detail/{id}","Kredit@detail")->name("detail");
+        Route::get("/klaim/{id}","Kredit@klaim")->name("klaim");
+        Route::get("/history_installment/{id}","Kredit@history_installment")->name("history_installment");
+        Route::get("/angsuran/{id}","Kredit@angsuran")->name("angsuran");
+        Route::get("/autodebet/{id}","Kredit@autodebet")->name("autodebet");
+        Route::post("/manual/{id}","Kredit@manual")->name("manual");
     });
 });
 

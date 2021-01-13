@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * 
  * @property int $id
  * @property int $amount
+ * @property int $status
+ * @property string|null $recipt
  * @property int $borrow_id
  * @property string|null $deleted_at
  * @property Carbon|null $updated_at
@@ -31,11 +33,14 @@ class BorrowInstallment extends Model
 
 	protected $casts = [
 		'amount' => 'int',
+		'status' => 'int',
 		'borrow_id' => 'int'
 	];
 
 	protected $fillable = [
 		'amount',
+		'status',
+		'recipt',
 		'borrow_id'
 	];
 

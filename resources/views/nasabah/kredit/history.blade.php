@@ -190,11 +190,7 @@
                         <a href="{{route("nasabah.kredit.angsuran",$current->id)}}" class="btn btn-flat btn-success btn-block mt-2">
                             Angsuran
                         </a>
-                        <a href="{{route("nasabah.kredit.history_installment",$current->id)}}" class="btn btn-flat btn-outline-primary btn-block mt-2">
-                            Catatan Angsuran
-                        </a>
                         @endif
-
 
                     </div>
                 </div>

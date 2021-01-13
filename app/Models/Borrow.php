@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property float $amount
  * @property int $status
  * @property int|null $interest
+ * @property float|null $month_term
  * @property Carbon|null $approved_date
  * @property Carbon|null $declined_date
  * @property int $product_id
@@ -42,6 +43,7 @@ class Borrow extends Model
 		'amount' => 'float',
 		'status' => 'int',
 		'interest' => 'int',
+		'month_term' => 'float',
 		'product_id' => 'int',
 		'user_id' => 'int'
 	];
@@ -55,6 +57,7 @@ class Borrow extends Model
 		'amount',
 		'status',
 		'interest',
+		'month_term',
 		'approved_date',
 		'declined_date',
 		'product_id',
