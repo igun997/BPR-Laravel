@@ -115,7 +115,7 @@ class Gateway
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu",function ($e){
                         $e->menu->add([
                             "text"=>"Data Pencairan",
-                            "url"=>"kredit/pencairan",
+                            "url"=>"kredit/pengajuan",
                             "icon"=>"fa fa-file"
                         ]);
 

@@ -101,6 +101,13 @@ Route::prefix("nasabah")->name("nasabah.")->namespace("Nasabah")->group(function
         Route::post("/manual/{id}","Kredit@manual")->name("manual");
     });
 });
+Route::prefix("kredit")->name("kredit.")->namespace("Kredit")->group(function () {
+    Route::prefix("pengajuan")->name("pengajuan.")->group(function (){
+        Route::get("/","Pengajuan@index")->name("list");
+        Route::get("/detail/{id}","Pengajuan@detail")->name("detail");
+        Route::get("/update_status/{id}","Pengajuan@update_status")->name("update_status");
+    });
+});
 
 
 
