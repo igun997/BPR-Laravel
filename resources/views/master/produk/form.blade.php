@@ -35,6 +35,10 @@
                         <label for="month_term">Jangka Waktu</label>
                         <input type="number" step="0.1" name="month_term" value="{{$data->month_term??""}}" class="form-control">
                     </div>
+                        <div class="form-group">
+                            <label for="total">Total Pinjaman (Khusus Tipe Kredit)</label>
+                            <input type="number" step="0.1" name="total" value="{{$data->total??""}}" class="form-control">
+                        </div>
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-control">

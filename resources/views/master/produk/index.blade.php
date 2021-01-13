@@ -30,6 +30,7 @@
                                     <th>Bunga</th>
                                     <th>Deskripsi</th>
                                     <th>Jangka Waktu</th>
+                                    <th>Total Pinjaman</th>
                                     <th>Gambar</th>
                                     <th>Status</th>
                                     <th>Dibuat</th>
@@ -43,9 +44,10 @@
                                     <td>{{($key+1)}}</td>
                                     <td>{{$complaint->name}}</td>
                                     <td>{{\App\Casts\LevelAccount::lang($complaint->type)}}</td>
-                                    <td>{{number_format($complaint->interest)}} % / Bulan</td>
+                                    <td>{{number_format($complaint->interest,1)}} % / Bulan</td>
                                     <td>{{$complaint->description}}</td>
                                     <td>{{number_format($complaint->month_term)}} Bulan</td>
+                                    <td>{{($complaint->total > 0)?"Rp. ".number_format($complaint->total):"-"}}</td>
                                     <td>
                                         <img src="{{$complaint->img}}" class="img-thumbnail img-fluid" />
                                     </td>

@@ -92,6 +92,10 @@ Route::prefix("nasabah")->name("nasabah.")->namespace("Nasabah")->group(function
         Route::get("/","Transaksi@index")->name("list");
         Route::get("/detail/{id}","Transaksi@detail")->name("detail");
     });
+    Route::prefix("kredit")->name("kredit.")->group(function (){
+        Route::get("/","Kredit@index")->name("list");
+        Route::get("/detail/{id}","Kredit@detail")->name("detail");
+    });
 });
 
 

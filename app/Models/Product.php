@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $type
  * @property float|null $interest
  * @property int $month_term
+ * @property float|null $total
  * @property int $status
  * @property string $img
  * @property string|null $description
@@ -40,6 +41,7 @@ class Product extends Model
 		'type' => 'int',
 		'interest' => 'float',
 		'month_term' => 'int',
+		'total' => 'float',
 		'status' => 'int'
 	];
 
@@ -48,6 +50,7 @@ class Product extends Model
 		'type',
 		'interest',
 		'month_term',
+		'total',
 		'status',
 		'img',
 		'description'

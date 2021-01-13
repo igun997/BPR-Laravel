@@ -71,8 +71,6 @@ class ProductsControl extends Controller
             if( $data["img"] == null){
                 $data["img"] = "-";
             }
-        }else{
-            $data["img"] = "-";
         }
         $create = Product::where(["id"=>$id])->update($data);
         if ($create){
