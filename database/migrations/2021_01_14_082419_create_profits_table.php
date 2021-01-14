@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComplaintTypesTable extends Migration
+class CreateProfitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateComplaintTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('complaint_types', function (Blueprint $table) {
+        Schema::create('profits', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->integer('name');
+            $table->integer('borrow_id')->index('borrow_id');
+            $table->float('amount', 10, 0);
+            $table->float('interest', 10, 0);
+            $table->date('transaction_date')->nullable();
             $table->date('created_at')->nullable();
             $table->date('updated_at')->nullable();
+            $table->date('deleted_at')->nullable();
         });
     }
 
@@ -28,6 +32,6 @@ class CreateComplaintTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complaint_types');
+        Schema::dropIfExists('profits');
     }
 }

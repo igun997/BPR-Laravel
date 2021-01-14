@@ -15,6 +15,7 @@ class AddForeignKeysToDepositosTable extends Migration
     {
         Schema::table('depositos', function (Blueprint $table) {
             $table->foreign('product_id', 'depositos_ibfk_1')->references('id')->on('products')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('user_id', 'depositos_ibfk_2')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignKeysToDepositosTable extends Migration
     {
         Schema::table('depositos', function (Blueprint $table) {
             $table->dropForeign('depositos_ibfk_1');
+            $table->dropForeign('depositos_ibfk_2');
         });
     }
 }

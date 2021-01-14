@@ -16,7 +16,10 @@ class CreateBorrowInstallmentsTable extends Migration
         Schema::create('borrow_installments', function (Blueprint $table) {
             $table->integer('id', true);
             $table->integer('amount');
+            $table->integer('status');
+            $table->string('recipt', 100)->nullable();
             $table->integer('borrow_id')->index('borrow_id');
+            $table->date('deleted_at')->nullable();
             $table->date('updated_at')->nullable();
             $table->date('created_at')->nullable();
         });

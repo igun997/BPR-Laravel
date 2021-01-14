@@ -12,7 +12,7 @@
         @foreach($products as $key => $row)
         <div class="col-12 col-md-4">
             <div class="card">
-                <img class="card-img-top" src="{{$row->img}}" alt="{{$row->name}}">
+                <img class="card-img-top" src="{{$row->img}}" style="height: 200px" alt="{{$row->name}}">
                 <div class="card-body">
                     <ul class="list-group">
                         <li class="list-group-item text-center bg-orange " style="color: white !important;">

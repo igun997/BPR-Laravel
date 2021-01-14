@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('no_ktp', 100)->nullable()->unique('no_ktp');
             $table->integer('status');
             $table->string('no_rekening', 100)->nullable();
+            $table->date('deleted_at')->nullable();
             $table->date('created_at')->nullable();
             $table->date('updated_at')->nullable();
         });
