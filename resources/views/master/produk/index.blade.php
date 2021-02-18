@@ -43,7 +43,7 @@
                                 <tr>
                                     <td>{{($key+1)}}</td>
                                     <td>{{$complaint->name}}</td>
-                                    <td>{{\App\Casts\LevelAccount::lang($complaint->type)}}</td>
+                                    <td>{{\App\Casts\ProductType::lang($complaint->type)}}</td>
                                     <td>{{number_format($complaint->interest,1)}} % / Bulan</td>
                                     <td>{{$complaint->description}}</td>
                                     <td>{{number_format($complaint->month_term)}} Bulan</td>
