@@ -7,18 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RegistrasiEmail extends Mailable
+class MailerNotification extends Mailable
 {
     use Queueable, SerializesModels;
+    public $data;
+    public $template;
 
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param $data
+     * @param $mail_template
      */
-    public function __construct()
+    public function __construct($data,$mail_template)
     {
-        //
+        $this->data = $data;
+        $this->template = $mail_template;
     }
 
     /**
@@ -28,6 +32,6 @@ class RegistrasiEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject($this->data["subject"])->view($this->template,$this->data)->from($this->data["from"],$this->data["name"]);
     }
 }

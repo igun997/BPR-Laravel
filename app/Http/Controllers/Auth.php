@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Casts\LevelAccount;
 use App\Casts\StatusAccount;
+use App\Mail\MailerNotification;
 use App\Models\User;
 use App\Traits\ViewTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Auth extends Controller
 {
@@ -29,6 +31,16 @@ class Auth extends Controller
         return $this->loadView("register",compact("title"));
     }
 
+    public function verify(Request $req)
+    {
+        $req->validate([
+            "key"=>"required"
+        ]);
+
+        User::where(["username"=>base64_decode($req->key)])->update(["status"=>StatusAccount::ACTIVE]);
+        return redirect()->route("login")->with(["msg"=>"Verifikasi Akun Berhasil , Silahkan Login"]);
+    }
+
     public function register_action(Request  $req)
     {
         $req->validate([
@@ -41,11 +53,27 @@ class Auth extends Controller
         ]);
 
         $data = $req->all();
-        $data["status"] = StatusAccount::ACTIVE;
-        $data["level"] = LevelAccount::PELANGGAN;
+        $data["status"] = StatusAccount::INACTIVE;
+        $data["level"] = LevelAccount::NASABAH;
         $create = User::create($data);
         if ($create){
-            return $this->successRedirect("login");
+            $subject = "BPR Bumi Bakti Kencana - Aktivasi Akun";
+            $link = route("index.verify",["key"=>base64_encode($req->username)]);
+            $form = [
+                "<p>Aktivasikan akun anda dengan meng-akses link berikut</p>",
+                "<p><a href='$link' target='_blank'>$link</a></p>"
+            ];
+            $mail_data = [
+                "title"=>$subject,
+                "subject"=>$subject,
+                "name"=>env("MAIL_FROM_NAME"),
+                "from"=>env("MAIL_FROM_ADDRESS"),
+                "content"=>join("",$form)
+            ];
+            Mail::to($req->email)->send(new MailerNotification($mail_data,"mailer.register"));
+            if (!Mail::failures()){
+                return redirect()->route("login")->with(["msg"=>"Silahkan Cek Email Untuk Mengaktifkan Akun Anda"]);
+            }
         }
         return  $this->failBack(false);
     }

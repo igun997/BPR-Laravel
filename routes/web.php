@@ -19,6 +19,7 @@ Route::name("landing.")->namespace("Landing")->group(function (){
 });
 
 Route::get("/login","Auth@index")->name("login");
+Route::get("/verify","Auth@verify")->name("index.verify");
 
 Route::post("/login","Auth@login")->name("login.post");
 Route::post("/register","Auth@register_action")->name("register.post");
