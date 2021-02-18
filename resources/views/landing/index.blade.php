@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="col-lg-12 text-center" data-aos="fade-up" data-aos-delay="700">
-                    <a href="pengajuan.html" target="_blank"><button class="tombol" type="submit">Ajukan Sekarang</button></a>
+                    <a href="{{route("nasabah.kredit.list")}}" target="_blank"><button class="tombol" type="submit">Ajukan Sekarang</button></a>
                 </div>
 
             </div>
