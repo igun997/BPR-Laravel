@@ -66,7 +66,7 @@ class Auth extends Controller
             $mail_data = [
                 "title"=>$subject,
                 "subject"=>$subject,
-                "name"=>env("MAIL_FROM_NAME"),
+                "name"=>"PT BPR Bumi Bandung Kencana",
                 "from"=>env("MAIL_FROM_ADDRESS"),
                 "content"=>join("",$form)
             ];
