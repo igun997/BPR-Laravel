@@ -31,4 +31,9 @@ class Transaksi extends Controller
         $title = "Detail Transaksi #".str_pad($id,0,4,STR_PAD_LEFT);
         return $this->loadView("detail",compact("title","save"));
     }
+
+    public function approve(Request $req)
+    {
+
+    }
 }

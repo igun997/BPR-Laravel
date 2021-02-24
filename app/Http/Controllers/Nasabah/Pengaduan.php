@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Laporan;
+namespace App\Http\Controllers\Nasabah;
 
 use App\Http\Controllers\Controller;
 use App\Traits\ViewTrait;
 use Illuminate\Http\Request;
 
-class Pencairan extends Controller
+class Pengaduan extends Controller
 {
     use ViewTrait;
     public function __construct()
     {
-        $this->base = "laporan.pencairan";
+        $this->base = "nasabah.pengaduan";
     }
 
-    public function index()
-    {
-        
-    }
 }

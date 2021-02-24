@@ -57,7 +57,7 @@ class Auth extends Controller
         $data["level"] = LevelAccount::NASABAH;
         $create = User::create($data);
         if ($create){
-            $subject = "BPR Bumi Bakti Kencana - Aktivasi Akun";
+            $subject = "PT BPR Bumi Bakti Kencana - Aktivasi Akun";
             $link = route("index.verify",["key"=>base64_encode($req->username)]);
             $form = [
                 "<p>Aktivasikan akun anda dengan meng-akses link berikut</p>",

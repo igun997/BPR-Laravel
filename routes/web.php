@@ -111,5 +111,13 @@ Route::prefix("kredit")->name("kredit.")->namespace("Kredit")->group(function ()
 });
 
 
+Route::prefix("laporan")->name("laporan.")->namespace("Laporan")->group(function () {
+    Route::get("/pencairan","Pencairan@index")->name("pencairan");
+    Route::get("/pengaduan","Pengaduan@index")->name("pengaduan");
+    Route::get("/pengajuan","Pengajuan@index")->name("pengajuan");
+    Route::get("/transaksi","Transaksi@index")->name("transaksi");
+});
+
+
 
 
