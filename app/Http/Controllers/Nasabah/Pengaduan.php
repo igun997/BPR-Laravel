@@ -28,7 +28,7 @@ class Pengaduan extends Controller
     public function detail($id)
     {
         $title = "Detail Pengaduan";
-        $data = Complaint::findOrFail($id)
+        $data = Complaint::findOrFail($id);
         return $this->loadView("detail",compact("title","data"));
     }
     public function add()
