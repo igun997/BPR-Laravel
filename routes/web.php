@@ -93,6 +93,12 @@ Route::prefix("nasabah")->name("nasabah.")->namespace("Nasabah")->group(function
         Route::get("/","Transaksi@index")->name("list");
         Route::get("/detail/{id}","Transaksi@detail")->name("detail");
     });
+    Route::prefix("pengaduan")->name("pengaduan.")->group(function (){
+        Route::get("/","Pengaduan@index")->name("list");
+        Route::get("/add","Pengaduan@add")->name("add");
+        Route::post("/add_action","Pengaduan@add_action")->name("add_action");
+        Route::get("/detail/{id}","Pengaduan@detail")->name("detail");
+    });
     Route::prefix("kredit")->name("kredit.")->group(function (){
         Route::get("/","Kredit@index")->name("list");
         Route::get("/klaim/{id}","Kredit@klaim")->name("klaim");

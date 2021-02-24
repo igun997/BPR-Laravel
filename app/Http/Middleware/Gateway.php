@@ -187,6 +187,12 @@ class Gateway
                             "icon"=>"fa fa-money-bill"
                         ]);
 
+                        $e->menu->add([
+                            "text"=>"Pengaduan",
+                            "url"=>"nasabah/pengaduan",
+                            "icon"=>"fa fa-envelope"
+                        ]);
+
 
                     });
                 }
